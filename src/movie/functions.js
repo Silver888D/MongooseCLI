@@ -10,8 +10,12 @@ exports.createMovie = async (movieObj) => {
 
 
 exports.readMovie = async (movieObj) => {
-    const result = await Movie.find({title: movieObj.title, actor: movieObj.actor,});
-    console.log(result);
+    if (movieObj.title){
+    const result = await Movie.find({title: movieObj.title,});
+    console.log(result);}
+    else if (movieObj.actor){
+        const result = await Movie.find({actor: movieObj.actor,});
+        console.log(result);}
                                             };
 
 
