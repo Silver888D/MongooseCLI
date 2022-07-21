@@ -13,7 +13,7 @@ const app = async (yargsObj) => {
         console.log(result);
         //list all movies from DB
     } else if (yargsObj.update) {
-        await updateMovie({ title: yargsObj.title, actor: yargsObj.actor, title: yargsObj.newTitle, actor: yargsObj.newActor  });
+        await updateMovie({ title: yargsObj.title, actor: yargsObj.actor, newTitle: yargsObj.newTitle, newActor: yargsObj.newActor  });
         //update one movie from DB
     } else if (yargsObj.delete) {
         const deletes = await Movie.deleteOne({ title: yargsObj.title, actor: yargsObj.actor });
