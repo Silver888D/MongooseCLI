@@ -1,7 +1,8 @@
 require("./db/connection");
 const yargs = require("yargs");
 const mongoose = require("mongoose");
-const { createMovie, updateMovie, readMovie, deleteMovie } = require("./movie/functions");
+const { createMovie, updateMovie, readMovie, deleteMovie,  createTv, readTv, updateTv, deleteTv } = require("./movie/functions");
+
 
 const app = async (yargsObj) => {
     if (yargsObj.create) {await createMovie(
@@ -14,6 +15,18 @@ const app = async (yargsObj) => {
         { title: yargsObj.title, actor: yargsObj.actor, director: yargsObj.director, date: yargsObj.date, newTitle: yargsObj.newTitle, newActor: yargsObj.newActor, newDirector: yargsObj.newDirector, newDate: yargsObj.newDate   });}
 
     else if (yargsObj.delete) {await deleteMovie(
+        { title: yargsObj.title, actor: yargsObj.actor, director: yargsObj.director, date: yargsObj.date,});}
+
+    else if (yargsObj.createTv) {await createTv(
+        { title: yargsObj.title, actor: yargsObj.actor, director: yargsObj.director, date: yargsObj.date, });}
+    
+    else if (yargsObj.readTv) {await readTv(
+        { title: yargsObj.title, actor: yargsObj.actor, director: yargsObj.director, date: yargsObj.date, });}
+    
+    else if (yargsObj.updateTv) {await updateTv(
+        { title: yargsObj.title, actor: yargsObj.actor, director: yargsObj.director, date: yargsObj.date, newTitle: yargsObj.newTitle, newActor: yargsObj.newActor, newDirector: yargsObj.newDirector, newDate: yargsObj.newDate   });}
+    
+    else if (yargsObj.deleteTv) {await deleteTv(
         { title: yargsObj.title, actor: yargsObj.actor, director: yargsObj.director, date: yargsObj.date,});}
 
     else {console.log("Incorrect command");}
