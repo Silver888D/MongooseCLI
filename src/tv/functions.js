@@ -38,6 +38,6 @@ exports.updateTv= async (tvObj) => {
 
 
 exports.deleteTv = async (tvObj) => {
-    const deletes = await Tv.deleteOne({title: tvObj.title, actor: tvObj.actor, director: tvObj.director, date: tvObj.date});
+    const deletes = await Tv.deleteOne({title: tvObj.title});
     console.log(deletes);
                                             };

@@ -27,7 +27,7 @@ const app = async (yargsObj) => {
         { title: yargsObj.title, actor: yargsObj.actor, director: yargsObj.director, date: yargsObj.date, newTitle: yargsObj.newTitle, newActor: yargsObj.newActor, newDirector: yargsObj.newDirector, newDate: yargsObj.newDate   });}
     
     else if (yargsObj.deleteTv) {await deleteTv(
-        { title: yargsObj.title, actor: yargsObj.actor, director: yargsObj.director, date: yargsObj.date,});}
+        { title: yargsObj.title});}
 
     else {console.log("Incorrect command");}
 
