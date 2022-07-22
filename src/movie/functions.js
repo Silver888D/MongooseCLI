@@ -27,10 +27,10 @@ exports.readMovie = async (movieObj) => {
 
 exports.updateMovie = async (movieObj) => {
     try {
-        const updatedMovie = await Movie.find({title: movieObj.title, actor: movieObj.actor, director: movieObj.director, date: movieObj.date,});
-        const updates = { title: movieObj.newTitle, actor: movieObj.newActor, director: movieObj.newDirector, date: movieObj.newDate, };
-        await Movie.updateOne({ updatedMovie }, { $set: updates });
-        console.log(updatedMovie);}
+        
+        const updates = {  actor: movieObj.newActor, director: movieObj.newDirector, date: movieObj.newDate, };
+        await Movie.updateOne({ title: movieObj.title }, { $set: updates });
+        console.log(updates);}
     catch (error) {console.log(error);}
                                             };
 
@@ -39,3 +39,5 @@ exports.deleteMovie = async (movieObj) => {
     const deletes = await Movie.deleteOne({title: movieObj.title, actor: movieObj.actor, director: movieObj.director, date: movieObj.date});
     console.log(deletes);
                                             };
+
+// const updatedMovie = await Movie.find({title: movieObj.title, actor: movieObj.actor, director: movieObj.director, date: movieObj.date,});
